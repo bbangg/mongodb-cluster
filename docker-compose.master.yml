@@ -4,7 +4,7 @@ services:
   ## Router
   router01:
     image: mongo:latest
-    container_name: router-01
+    container_name: router01
     command: mongos --port 27017 --configdb rs-config-server/configsvr01:27017,configsvr02:27017,configsvr03:27017 --bind_ip_all
     ports:
       - 27117:27017
@@ -15,7 +15,7 @@ services:
       - mongodb_cluster_router01_config:/data/configdb
   router02:
     image: mongo:latest
-    container_name: router-02
+    container_name: router02
     command: mongos --port 27017 --configdb rs-config-server/configsvr01:27017,configsvr02:27017,configsvr03:27017 --bind_ip_all
     volumes:
       - ./scripts:/scripts
@@ -30,7 +30,7 @@ services:
   ## Config Servers
   configsvr01:
     image: mongo:latest
-    container_name: mongo-config-01
+    container_name: configsvr01
     command: mongod --port 27017 --configsvr --replSet rs-config-server
     volumes:
       - ./scripts:/scripts
@@ -41,7 +41,7 @@ services:
     restart: always
   configsvr02:
     image: mongo:latest
-    container_name: mongo-config-02
+    container_name: configsvr02
     command: mongod --port 27017 --configsvr --replSet rs-config-server
     volumes:
       - ./scripts:/scripts
@@ -54,7 +54,7 @@ services:
       - configsvr01
   configsvr03:
     image: mongo:latest
-    container_name: mongo-config-03
+    container_name: configsvr03
     command: mongod --port 27017 --configsvr --replSet rs-config-server
     volumes:
       - ./scripts:/scripts
