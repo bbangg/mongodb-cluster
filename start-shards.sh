@@ -1,0 +1,1 @@
+docker-compose -f docker-compose.shards.yml up -d
