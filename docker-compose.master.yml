@@ -33,7 +33,7 @@ services:
   configsvr01:
     image: mongo:latest
     container_name: configsvr01
-    command: mongod --port 27017 --configsvr --replSet rs-config-server
+    command: mongod --port 27017 --configsvr --replSet rs-config-server --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_configsvr01_db:/data/db
@@ -46,7 +46,7 @@ services:
   configsvr02:
     image: mongo:latest
     container_name: configsvr02
-    command: mongod --port 27017 --configsvr --replSet rs-config-server
+    command: mongod --port 27017 --configsvr --replSet rs-config-server --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_configsvr02_db:/data/db
@@ -59,7 +59,7 @@ services:
   configsvr03:
     image: mongo:latest
     container_name: configsvr03
-    command: mongod --port 27017 --configsvr --replSet rs-config-server
+    command: mongod --port 27017 --configsvr --replSet rs-config-server --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_configsvr03_db:/data/db
