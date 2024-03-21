@@ -6,7 +6,7 @@ services:
   shard01-a:
     image: mongo:latest
     container_name: shard01-a
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-01
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-01 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard01_a_db:/data/db
@@ -20,7 +20,7 @@ services:
   shard01-b:
     image: mongo:latest
     container_name: shard01-b
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-01
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-01 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard01_b_db:/data/db
@@ -31,7 +31,7 @@ services:
   shard01-c:
     image: mongo:latest
     container_name: shard01-c
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-01
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-01 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard01_c_db:/data/db
@@ -44,7 +44,7 @@ services:
   shard02-a:
     image: mongo:latest
     container_name: shard02-a
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-02
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-02 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard02_a_db:/data/db
@@ -58,7 +58,7 @@ services:
   shard02-b:
     image: mongo:latest
     container_name: shard02-b
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-02
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-02 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard02_b_db:/data/db
@@ -69,7 +69,7 @@ services:
   shard02-c:
     image: mongo:latest
     container_name: shard02-c
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-02
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-02 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard02_c_db:/data/db
@@ -82,7 +82,7 @@ services:
   shard03-a:
     image: mongo:latest
     container_name: shard03-a
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-03
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-03 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard03_a_db:/data/db
@@ -96,7 +96,7 @@ services:
   shard03-b:
     image: mongo:latest
     container_name: shard03-b
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-03
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-03 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard03_b_db:/data/db
@@ -107,7 +107,7 @@ services:
   shard03-c:
     image: mongo:latest
     container_name: shard03-c
-    command: mongod --port 27017 --shardsvr --replSet rs-shard-03
+    command: mongod --port 27017 --shardsvr --replSet rs-shard-03 --bind_ip_all
     volumes:
       - ./scripts:/scripts
       - mongodb_cluster_shard03_c_db:/data/db
