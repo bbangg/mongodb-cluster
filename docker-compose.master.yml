@@ -24,6 +24,8 @@ services:
     ports:
       - 27118:27017
     restart: always
+    links:
+      - router01
 
   ## Config Servers
   configsvr01:
@@ -48,6 +50,8 @@ services:
     ports:
       - 27120:27017
     restart: always
+    links:
+      - configsvr01
   configsvr03:
     image: mongo:latest
     container_name: mongo-config-03
@@ -59,6 +63,8 @@ services:
     ports:
       - 27121:27017
     restart: always
+    links:
+      - configsvr02
 
 volumes:
   mongodb_cluster_router01_db:
