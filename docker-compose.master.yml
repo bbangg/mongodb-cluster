@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   ## Router
@@ -13,6 +13,8 @@ services:
       - ./scripts:/scripts
       - mongodb_cluster_router01_db:/data/db
       - mongodb_cluster_router01_config:/data/configdb
+    networks:
+      - cluster
   router02:
     image: mongo:latest
     container_name: router02
@@ -24,8 +26,8 @@ services:
     ports:
       - 27118:27017
     restart: always
-    links:
-      - router01
+    networks:
+      - cluster
 
   ## Config Servers
   configsvr01:
@@ -39,6 +41,8 @@ services:
     ports:
       - 27119:27017
     restart: always
+    networks:
+      - cluster
   configsvr02:
     image: mongo:latest
     container_name: configsvr02
@@ -50,8 +54,8 @@ services:
     ports:
       - 27120:27017
     restart: always
-    links:
-      - configsvr01
+    networks:
+      - cluster
   configsvr03:
     image: mongo:latest
     container_name: configsvr03
@@ -63,8 +67,9 @@ services:
     ports:
       - 27121:27017
     restart: always
-    links:
-      - configsvr02
+    networks:
+      - cluster
+
 
 volumes:
   mongodb_cluster_router01_db:
@@ -81,3 +86,7 @@ volumes:
 
   mongodb_cluster_configsvr03_db:
   mongodb_cluster_configsvr03_config:
+
+networks:
+  cluster:
+    driver: bridge
