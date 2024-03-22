@@ -16,8 +16,8 @@ services:
       - 27301:27017
     restart: always
     links:
-      - shard01-b
-      - shard01-c
+      - shard-01-b
+      - shard-01-c
   shard-01-b:
     build: 
       context: mongodb
