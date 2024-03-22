@@ -13,13 +13,13 @@ if [ "$2" != "master" ] && [ "$2" != "shard" ]; then
 fi
 
 if [ "$1" == "start" ]; then
-    docker-compose -f "docker-compose.$2.yml" up -d
+    docker compose -f "docker-compose.$2.yml" up -d
 fi
 
 if [ "$1" == "stop" ]; then
-    docker-compose -f "docker-compose.$2.yml" down
+    docker compose -f "docker-compose.$2.yml" down
 fi
 
 if [ "$1" == "purge" ]; then
-    docker-compose -f "docker-compose.$2.yml" down -v --rmi all --remove-orphans
+    docker compose -f "docker-compose.$2.yml" down -v --rmi all --remove-orphans
 fi
