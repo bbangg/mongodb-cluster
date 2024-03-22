@@ -1,1 +1,0 @@
-docker-compose -f docker-compose.shards.yml down -v --rmi all --remove-orphans

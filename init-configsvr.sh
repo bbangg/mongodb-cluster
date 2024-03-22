@@ -1,1 +1,0 @@
-docker exec -it configsvr01 /bin/sh -c "mongosh < /scripts/init-configsvr.js"

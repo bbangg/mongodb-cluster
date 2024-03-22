@@ -1,1 +1,0 @@
-docker exec -it router01 /bin/sh -c "mongosh < /scripts/init-router.js"

@@ -9,7 +9,7 @@ services:
     container_name: router01
     command: mongos --port 27017 --configdb rs-config-server/configsvr01:27017,configsvr02:27017,configsvr03:27017 --bind_ip_all --keyFile /data/mongodb-keyfile
     ports:
-      - 27117:27017
+      - 27101:27017
     restart: always
     volumes:
       - ./scripts:/scripts
@@ -28,7 +28,7 @@ services:
       - router02_db:/data/db
       - router02_config:/data/configdb
     ports:
-      - 27118:27017
+      - 27102:27017
     restart: always
     networks:
       - masternet
@@ -45,7 +45,7 @@ services:
       - configsvr01_db:/data/db
       - configsvr01_config:/data/configdb
     ports:
-      - 27119:27017
+      - 27201:27017
     restart: always
     networks:
       - masternet
@@ -60,7 +60,7 @@ services:
       - configsvr02_db:/data/db
       - configsvr02_config:/data/configdb
     ports:
-      - 27120:27017
+      - 27202:27017
     restart: always
     networks:
       - masternet
@@ -75,7 +75,7 @@ services:
       - configsvr03_db:/data/db
       - configsvr03_config:/data/configdb
     ports:
-      - 27121:27017
+      - 27203:27017
     restart: always
     networks:
       - masternet
