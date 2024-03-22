@@ -46,11 +46,11 @@ services:
     restart: always
 
 volumes:
-  shard-01_a_db:
-  shard-01_a_config:
+  shard_a_db:
+  shard_a_config:
 
-  shard-01_b_db:
-  shard-01_b_config:
+  shard_b_db:
+  shard_b_config:
 
-  shard-01_c_db:
-  shard-01_c_config:
+  shard_c_db:
+  shard_c_config:
