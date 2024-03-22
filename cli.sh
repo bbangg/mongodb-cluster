@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ "$1" != "start" ] && [ "$1" != "stop" ] && [ "$1" != "purge" ]; then
     echo "Invalid argument."
     echo "./cli.sh [start|stop|purge] [master|shard]"
