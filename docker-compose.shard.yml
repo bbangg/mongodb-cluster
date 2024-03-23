@@ -5,6 +5,7 @@ services:
       context: mongodb
     image: mongodb:latest
     container_name: shard-01-a
+    restart: unless-stopped
     command: mongod --port 27017 --shardsvr --replSet rs-shard-01 --bind_ip_all --keyFile /data/mongodb-keyfile
     volumes:
       - ./scripts:/scripts
@@ -21,6 +22,7 @@ services:
       context: mongodb
     image: mongodb:latest
     container_name: shard-01-b
+    restart: unless-stopped
     command: mongod --port 27017 --shardsvr --replSet rs-shard-01 --bind_ip_all --keyFile /data/mongodb-keyfile
     volumes:
       - ./scripts:/scripts
@@ -34,6 +36,7 @@ services:
       context: mongodb
     image: mongodb:latest
     container_name: shard-01-c
+    restart: unless-stopped
     command: mongod --port 27017 --shardsvr --replSet rs-shard-01 --bind_ip_all --keyFile /data/mongodb-keyfile
     volumes:
       - ./scripts:/scripts
